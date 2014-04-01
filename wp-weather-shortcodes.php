@@ -3,7 +3,7 @@
  * Plugin Name: WP Weather Shortcodes
  * Plugin URI: http://binarystash.blogspot.com/2013/11/wp-booklet.html
  * Description: Add weather shortcodes to your blog
- * Version: 1.0
+ * Version: 1.1
  * Author: BinaryStash
  * Author URI:  binarystash.blogspot.com
  * License: GPLv2 (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -33,11 +33,11 @@ class WP_Weather_Shortcodes_Widget extends WP_Widget {
 		
 		$atts = array(
 			'location'=> $instance['location'],
-			'date'=> $instance['date'],
-			'units'=> $instance['units']
+			'units'=> $instance['units'],
+			'date'=>date('Y-m-d')
 		);
 		
-		$weather = new Weather_Day($atts);
+		$weather = new Weather_Shortcodes_Provider($atts);
 		
 		echo $before_widget;
 		include WP_WEATHER_SHORTCODES_DIR . "/includes/wp-weather-shortcodes-box.php";
@@ -48,7 +48,6 @@ class WP_Weather_Shortcodes_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$location = isset( $instance['location'] )  ? $instance['location'] : "New York";
 		$units = isset( $instance['units'] )  ? $instance['units'] : "celsius";
-		$date = isset( $instance['date'] )  ? $instance['date'] : date('Y-m-d');
 		
 		include WP_WEATHER_SHORTCODES_DIR . "/includes/wp-weather-shortcodes-form.php";
 	}
@@ -69,26 +68,11 @@ class WP_Weather_Shortcodes_Widget extends WP_Widget {
 			}
 		}
 		
-		if ( !isset( $new_instance['date'] ) ) {
-			$new_instance['date'] = date('Y-m-d');
-		}
-		else {
-			$date_arr = explode( "-" , $new_instance['date']);
-			if ( isset( $date_arr[0] ) && isset( $date_arr[1] ) && isset( $date_arr[2] ) ) {
-				if ( !checkdate( $date_arr[1], $date_arr[2], $date_arr[0] ) ) {
-					$new_instance['date'] = date('Y-m-d');
-				}
-			} 
-			else {
-				$new_instance['date'] = date('Y-m-d');
-			}
-		}
 		
 		//Prepare new values
 		$instance = array();
 		$instance['location'] = sanitize_text_field( $new_instance['location'] );
 		$instance['units'] = sanitize_text_field( $new_instance['units'] );
-		$instance['date'] = sanitize_text_field( $new_instance['date'] );
 		
 		return $instance;
 	}
@@ -147,7 +131,7 @@ class Weather_Shortcodes_Controller {
 				$atts['units'] = 'celsius';
 			}
 		
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 
 			switch( $atts['units'] ) {
 				case "celsius": $units = "C"; break;
@@ -169,7 +153,7 @@ class Weather_Shortcodes_Controller {
 				$atts['units'] = 'celsius';
 			}
 		
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 
 			switch( $atts['units'] ) {
 				case "celsius": $units = "C"; break;
@@ -191,7 +175,7 @@ class Weather_Shortcodes_Controller {
 				$atts['units'] = 'celsius';
 			}
 		
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 
 			switch( $atts['units'] ) {
 				case "celsius": $units = "C"; break;
@@ -209,7 +193,7 @@ class Weather_Shortcodes_Controller {
 	
 	public function get_atmospheric_pressure($atts) {
 		try {
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 			return $this->add_attribution( $this->weather->get_atmospheric_pressure() . 'hPa' );
 		}
 		catch( Exception $e ) {
@@ -220,7 +204,7 @@ class Weather_Shortcodes_Controller {
 	
 	public function get_humidity($atts) {
 		try {
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 			return $this->add_attribution( $this->weather->get_humidity() . '%' );
 		}
 		catch( Exception $e ) {
@@ -231,7 +215,7 @@ class Weather_Shortcodes_Controller {
 	
 	public function get_wind_speed($atts) {
 		try {
-			$this->weather = new Weather_Day($atts);
+			$this->weather = new Weather_Shortcodes_Provider($atts);
 			return $this->add_attribution( $this->weather->get_wind_speed() . 'mps ' . $this->weather->get_wind_direction() . '&deg;' );
 		}
 		catch( Exception $e ) {
@@ -261,7 +245,7 @@ object = {
 	location
 } 
  */
-class Weather_Day {
+class Weather_Shortcodes_Provider {
 	
 	protected $_min_temp;
 	protected $_max_temp;
@@ -280,7 +264,7 @@ class Weather_Day {
 		
 		$this->_units = isset( $args['units'] ) ? $args['units'] : "";
 		$this->_location = isset( $args['location'] ) ? $args['location'] : "";
-		$this->_day = isset( $args['day'] ) ? $args['day'] : date("Y-m-d");
+		$this->_day = date('Y-m-d');
 		
 		$this->_validate_attributes();
 		

@@ -12,9 +12,4 @@
 </select>
 </p>
 
-<p>
-<label for="<?php echo $this->get_field_name( 'date' ); ?>"><?php _e( 'Date' ); ?> <span class="tip">(e.g. <?php echo date('Y-m-d') ?>)</span></label> 
-<input class="widefat" id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" type="text" value="<?php echo esc_attr( $date ); ?>" />
-</p>
-
 </div>

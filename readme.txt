@@ -4,7 +4,7 @@ Donate link: http://binarystash.blogspot.com/
 Tags: weather, weather widget, weather shortcode
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,10 +45,9 @@ This section describes how to install the plugin and get it working.
 
 = What other options are supported? =
 
-Besides **location**, **units** and **date** are also available.
+Besides **location**, **units** is also available.
 
 * [ws_current_temp location="new york" units="celsius"] - You can use either "celsius" or "fahrenheit".
-* [ws_current_temp location="new york" units="celsius" date="2014-03-16"] - The date must have the format 'yyyy-mm-dd'. The date can be any of the 14 days ahead of the current date (14-day forecast).
 
 = What is OpenWeatherMap.org? =
 
@@ -58,3 +57,6 @@ OpenWeatherMap.org is the weather data provider. Using their free service requir
 
 = 1.0 =
 * Stable version
+
+= 1.1 =
+* Removed ability to specify date; now defaults to current day
