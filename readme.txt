@@ -12,7 +12,7 @@ Add weather shortcodes to your blog
 
 == Description ==
 
-WP Weather Shortcodes provides shortcodes for displaying the following weather data. Each can be customized according to location and date. See the FAQ for details.
+WP Weather Shortcodes provides shortcodes for displaying the following weather data. Each can be customized according to location. See the FAQ for details.
 
 * Current temperature
 * Minimum temperature
