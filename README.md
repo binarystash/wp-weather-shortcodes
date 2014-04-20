@@ -12,25 +12,25 @@ WP Weather Shortcodes provides shortcodes for displaying current weather data on
 
 Place the shortcode in the content or a text widget. Refer to the following examples.
 
-### Current temperature
+##### Current temperature
 `[ws_current_temp location="new york"] `
 
-### Minimum temperature
+##### Minimum temperature
 `[ws_min_temp location="new york"]`
 
-### Maximum temperature
+##### Maximum temperature
 `[ws_max_temp location="new york"]`
 
-### Atmospheric pressure
+##### Atmospheric pressure
 `[ws_atmospheric_pressure location="new york"]`
 
-### Humidity
+##### Humidity
 `[ws_humidity location="new york"]`
 
-### Wind speed
+##### Wind speed
 `[ws_wind_speed location="new york"]`
 
-### Current temperature in celsius or fahrenheit
+##### Current temperature in celsius or fahrenheit
 `[ws_current_temp location="new york" units="celsius"]`
 
 `[ws_current_temp location="new york" units="fahrenheit"]`
@@ -38,6 +38,10 @@ Place the shortcode in the content or a text widget. Refer to the following exam
 ## Compatibility
 
 Tested on Wordpress 3.5 to 3.8.1
+
+## Support
+
+Report bugs at https://github.com/binarystash/wp-weather-shortcodes/issues.
 
 ## What is OpenWeatherMap.org?
 
