@@ -1,5 +1,5 @@
-### WP Weather Shortcodes.
-WP Weather Shortcodes provides shortcodes for displaying current weather data on your Wordpress blog. Each can be customized according to location. Official page is located at http://binarystash.github.io/wp-weather-shortcodes.
+### WP Weather Shortcodes (Wordpress weather shortcodes)
+WP Weather Shortcodes provides shortcodes for displaying current weather data on your Wordpress blog. Each can be customized according to location.
 
 ## Installation
 
