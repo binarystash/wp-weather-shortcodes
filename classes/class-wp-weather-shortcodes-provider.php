@@ -77,6 +77,8 @@ class Weather_Shortcodes_Provider {
 			$return = json_decode( curl_exec( $ch ) );
 			curl_close($ch);
 			
+			print_r($return);
+			
 			set_transient( $slug, $return, HOUR_IN_SECONDS );
 			
 			$weather_object = $return;
@@ -95,11 +97,6 @@ class Weather_Shortcodes_Provider {
 				$this->_current_temp = $day->temp->day;
 				$this->_wind_direction = $day->deg;
 				$this->_weather_code = $day->weather[0]->id;
-				
-				echo "<pre>";
-				print_r( $day );
-				echo "</pre>";
-				
 			}
 		}
 	}
