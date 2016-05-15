@@ -1,6 +1,7 @@
 <div class="wp-weather-shortcodes-widget">
 	<div class="wp-weather-shortcodes-location"><?php echo $atts['location'] ?></div>
 	<div class="wp-weather-shortcodes-date"><?php echo $atts['date'] ?></div>
+	<div class="wp-weather-shortcodes-icon"><span class="owf owf-5x owf-<?php echo $weather->get_weather_code() ?>"></span></div>
 	<div class="wp-weather-shortcodes-temp"><?php echo $weather->get_current_temp() ?>&deg; <span class="units"><?php echo $instance['units'] == "celsius" ? "C" : "F" ?></span></div>
 	<div class="wp-weather-shortcodes-atmpressure detail"><span class="label">Atm. pressure:</span> <?php echo $weather->get_atmospheric_pressure(); ?><span class="units">hPa</span></div>
 	<div class="wp-weather-shortcodes-humidity detail"><span class="label">Humidity:</span> <?php echo $weather->get_humidity() ?><span class="units">%</span></div>
