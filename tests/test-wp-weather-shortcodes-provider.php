@@ -2,53 +2,24 @@
 
 class WP_Weather_Shortcodes_ProviderTest extends PHPUnit_Framework_TestCase {
 
-	/*protected $_mdir; //Media Dimensions Image reflection instance
-	protected $_mdi; //Media Dimensions Image instance
+	protected $_ws_provider;
 
 	function setUp() {
 
-		$this->_mdir = new ReflectionClass("Media_Dimensions_Image");
-
-		$this->_mdi = new Media_Dimensions_Image( MEDIA_DIMENSIONS_DIR . '/tests/media/test.png' );
+		$this->_ws_provider = new Weather_Shortcodes_Provider( array('tokyo') );
 
 	}
 
-	function test_find_dimensions() {
+	function test_get_current_temp() {
 
-		$method = $this->_mdir->getMethod("_find_dimensions");
-		$method->setAccessible( true );
-		$method->invoke( $this->_mdi );
-
-		$width = $this->_mdir->getProperty("_width");
-		$width->setAccessible( true );
-		$this->assertEquals( 499, $width->getValue( $this->_mdi ) );
-
-		$height = $this->_mdir->getProperty("_height");
-		$height->setAccessible( true );
-		$this->assertEquals( 310, $height->getValue( $this->_mdi ) );
+		$this->assertEquals( 33.19 , $this->_ws_provider->get_current_temp() );
 
 	}
+	
+	function test_get_min_temp() {
 
-	function test_is_supported_file() {
-
-		$method = $this->_mdir->getMethod("_is_supported_file");
-		$method->setAccessible( true );
-		$output = $method->invoke( $this->_mdi );
-
-		$this->assertTrue( $output );
+		$this->assertEquals( 27.84 , $this->_ws_provider->get_min_temp() );
 
 	}
-
-	function test_get_width() {
-
-		$this->assertEquals( 499, $this->_mdi->get_width() );
-
-	}
-
-	function test_get_height() {
-
-		$this->assertEquals( 310, $this->_mdi->get_height() );
-
-	}*/
 
 }

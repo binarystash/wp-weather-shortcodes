@@ -71,7 +71,7 @@ class Weather_Shortcodes_Provider {
 			
 			$api_uri = "http://api.openweathermap.org/data/2.5/forecast/daily?";
 			$query = $api_uri . http_build_query($query_vars);
-	
+			
 			$ch = curl_init($query);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$return = json_decode( curl_exec( $ch ) );
@@ -95,6 +95,11 @@ class Weather_Shortcodes_Provider {
 				$this->_current_temp = $day->temp->day;
 				$this->_wind_direction = $day->deg;
 				$this->_weather_code = $day->weather[0]->id;
+				
+				echo "<pre>";
+				print_r( $day );
+				echo "</pre>";
+				
 			}
 		}
 	}
