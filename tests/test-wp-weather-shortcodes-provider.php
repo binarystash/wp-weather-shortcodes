@@ -6,7 +6,7 @@ class WP_Weather_Shortcodes_ProviderTest extends PHPUnit_Framework_TestCase {
 
 	function setUp() {
 
-		$this->_ws_provider = new Weather_Shortcodes_Provider( array('tokyo') );
+		$this->_ws_provider = new Weather_Shortcodes_Provider( array('location'=>'tokyo') );
 
 	}
 
