@@ -3,7 +3,7 @@
 
   DocumentRoot %TRAVIS_BUILD_DIR%/tests/api.openweather.org
 
-  <Directory "%TRAVIS_BUILD_DIR%"/tests/api.openweather.org>
+  <Directory "%TRAVIS_BUILD_DIR%/tests/api.openweather.org">
     Options FollowSymLinks MultiViews ExecCGI
     AllowOverride All
     Order deny,allow
