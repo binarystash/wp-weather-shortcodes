@@ -35,6 +35,10 @@ Place the shortcode in the content or a text widget. Refer to the following exam
 
 `[ws_current_temp location="new york" units="fahrenheit"]`
 
+##### Weather icon
+
+`[ws_icon location="beijing"]`
+
 ## Compatibility
 
 Tested on Wordpress 3.5 to 3.8.1
