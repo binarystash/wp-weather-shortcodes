@@ -40,7 +40,7 @@ class WP_Weather_Shortcodes_ProviderTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( 85 , $this->_ws_provider->get_humidity() );
 
 	}
-	//start here
+
 	function test_get_wind_direction() {
 
 		$this->assertEquals( 115 , $this->_ws_provider->get_wind_direction() );
