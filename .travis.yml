@@ -14,6 +14,7 @@ env:
 
 addons:
   hosts:
+    # resolve the following to 127.0.0.1
     - api.openweathermap.org
 
 before_script:

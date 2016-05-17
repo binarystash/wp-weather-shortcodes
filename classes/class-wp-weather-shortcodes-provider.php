@@ -77,8 +77,6 @@ class Weather_Shortcodes_Provider {
 			$return = json_decode( curl_exec( $ch ) );
 			curl_close($ch);
 			
-			print_r($return);
-			
 			set_transient( $slug, $return, HOUR_IN_SECONDS );
 			
 			$weather_object = $return;
