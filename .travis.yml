@@ -30,5 +30,6 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
   - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
+  - php tests/tools/build-api.php
 
 script: phpunit
