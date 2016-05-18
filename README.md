@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/binarystash/wp-weather-shortcodes.svg?branch=master)](https://travis-ci.org/binarystash/wp-weather-shortcodes)
+
 # Wordpress weather shortcodes
 WP Weather Shortcodes provides shortcodes for displaying current weather data on your Wordpress blog. Each can be customized according to location.
 
