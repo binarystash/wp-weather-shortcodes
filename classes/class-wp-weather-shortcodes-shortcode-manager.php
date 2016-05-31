@@ -14,11 +14,17 @@ class WP_Weather_Shortcodes_Shortcode_Manager {
 		
 	}
 	
-	private function _add_attribution($output) {
+	private function _add_attribution($value) {
 		if ( !$this->_attribution_displayed ) {
-			$output = "<a title='Data from OpenWeatherMap.org' href='http://www.openweathermap.org' target='_blank'>" . $output . "</a>";
+			$output = "<a title='Data from OpenWeatherMap.org' href='http://www.openweathermap.org' target='_blank'>" . $value . "</a>";
 			$this->_attribution_displayed = true;
 		}
+		else {
+			$output = $value;
+		}
+		
+		$output = apply_filters("wp_weather_shortcodes_shortcode_attribution_filter", $output, $value);
+		
 		return $output;
 	}
 	

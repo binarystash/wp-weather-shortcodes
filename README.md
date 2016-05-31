@@ -12,7 +12,7 @@ WP Weather Shortcodes provides shortcodes for displaying current weather data on
 
 ## Usage
 
-Place the shortcode in the content or a text widget. Refer to the following examples.
+Place the shortcode in the WYSIWYG editor or a text widget. Refer to the following examples.
 
 ##### Current temperature
 `[ws_current_temp location="new york"] `
@@ -48,15 +48,27 @@ If a different weather data provider needs to be used, add the `wp_weather_short
 ```php
 <?php
 
+/* Modify weather data */
+
 function my_own_weather_provider($day) {
-	
-	print_r( $day );
-	
+	/* Modify $day */
 	return $day;
-
 }
-
 add_filter("wp_weather_shortcodes_provider_day_filter", "my_own_weather_provider");
+
+/* Modify attribution */
+
+function my_own_shortcode_attribution($text, $value) {
+	return $value;
+}
+add_filter("wp_weather_shortcodes_shortcode_attribution_filter", "my_own_shortcode_attribution", 10, 2);
+
+function my_own_widget_attribution($text) {
+	$text = "";
+	return $text;
+}
+add_filter("wp_weather_shortcodes_widget_attribution_filter", "my_own_widget_attribution");
+
 ```
 
 ## Compatibility

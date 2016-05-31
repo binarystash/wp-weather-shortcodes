@@ -22,6 +22,10 @@ class WP_Weather_Shortcodes_Widget extends WP_Widget {
 		
 		$weather = new Weather_Shortcodes_Provider($atts);
 		
+		$attribution = '<div class="wp-weather-shortcodes-attribution">Data provided by <br/> <a href="http://www.openweathermap.org" target="_blank">OpenWeatherMap.org</a></div>';
+		
+		$attribution = apply_filters("wp_weather_shortcodes_widget_attribution_filter",$attribution);
+		
 		echo $before_widget;
 		include WP_WEATHER_SHORTCODES_DIR . "/includes/wp-weather-shortcodes-box.php";
 		echo $after_widget;

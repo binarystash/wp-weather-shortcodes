@@ -3,7 +3,7 @@
  * Plugin Name: WP Weather Shortcodes
  * Plugin URI: http://binarystash.blogspot.com/2013/11/wp-booklet.html
  * Description: Add weather shortcodes to your blog
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: BinaryStash
  * Author URI:  binarystash.blogspot.com
  * License: GPLv2 (http://www.gnu.org/licenses/gpl-2.0.html)
