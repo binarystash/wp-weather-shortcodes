@@ -47,17 +47,19 @@ If a different weather data provider needs to be used, add the `wp_weather_short
 
 ```php
 <?php
-
-/* Modify weather data */
-
 function my_own_weather_provider($day) {
 	/* Modify $day */
 	return $day;
 }
 add_filter("wp_weather_shortcodes_provider_day_filter", "my_own_weather_provider");
+```
 
-/* Modify attribution */
+## Modifying attribution
 
+OpenWeatherMap.org is the default weather data provider. Using their free service requires attribution. Hence, the first instance of the shortcode and the weather widget have links to their website. If a different provider is used, you may remove them using the following filters.
+
+```php
+<?php
 function my_own_shortcode_attribution($text, $value) {
 	return $value;
 }
@@ -68,7 +70,6 @@ function my_own_widget_attribution($text) {
 	return $text;
 }
 add_filter("wp_weather_shortcodes_widget_attribution_filter", "my_own_widget_attribution");
-
 ```
 
 ## Compatibility
@@ -78,7 +79,4 @@ Tested on Wordpress 3.5 to 3.8.1
 ## Support
 
 Report bugs at https://github.com/binarystash/wp-weather-shortcodes/issues.
-
-## What is OpenWeatherMap.org?
-
-OpenWeatherMap.org is the weather data provider. Using their free service requires attribution. Hence, the first instance of the shortcode and the weather widget have links to their website. The links were placed as subtly as possible. 
+ 
