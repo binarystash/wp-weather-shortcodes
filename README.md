@@ -41,6 +41,24 @@ Place the shortcode in the content or a text widget. Refer to the following exam
 
 `[ws_icon location="beijing"]`
 
+## Using alternative provider
+
+If a different weather data provider needs to be used, add the `wp_weather_shortcodes_provider_day_filter` filter. See example below.
+
+```php
+<?php
+
+function my_own_weather_provider($day) {
+	
+	print_r( $day );
+	
+	return $day;
+
+}
+
+add_filter("wp_weather_shortcodes_provider_day_filter", "my_own_weather_provider");
+```
+
 ## Compatibility
 
 Tested on Wordpress 3.5 to 3.8.1

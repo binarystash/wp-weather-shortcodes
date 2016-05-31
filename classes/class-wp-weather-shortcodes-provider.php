@@ -87,6 +87,9 @@ class Weather_Shortcodes_Provider {
 		
 		foreach( $weather_object->list as $day ) {
 			if( date('Y-m-d',$day->dt ) == $this->_day ) {
+				
+				$day = apply_filters("wp_weather_shortcodes_provider_day_filter", $day);
+				
 				$this->_min_temp = $day->temp->min;
 				$this->_max_temp = $day->temp->max;
 				$this->_atmospheric_pressure = $day->pressure;
@@ -95,6 +98,7 @@ class Weather_Shortcodes_Provider {
 				$this->_current_temp = $day->temp->day;
 				$this->_wind_direction = $day->deg;
 				$this->_weather_code = $day->weather[0]->id;
+				
 			}
 		}
 	}
