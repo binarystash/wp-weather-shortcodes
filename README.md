@@ -7,8 +7,9 @@ WP Weather Shortcodes provides shortcodes for displaying current weather data on
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Use the provided shortcodes. See usage for details.
-4. Alternatively, you can use the widget on Appearance->Widgets.
+3. Input OpenWeather API key under Dashboard->Settings->WP Weather Shortcodes. Wrong data may be displayed if you skip this step.
+4. Use the provided shortcodes. See usage for details.
+5. Alternatively, you can use the widget on Appearance->Widgets.
 
 ## Usage
 
